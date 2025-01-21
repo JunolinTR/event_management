@@ -1,0 +1,110 @@
+/* General styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #001f3f, #003366); /* Navy blue gradient */
+  }
+  
+  /* Glassmorphism effect container */
+  .signup {
+    background: rgba(255, 255, 255, 0.1); /* Transparent white */
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37); /* Frosted glass shadow */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari compatibility */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 40px;
+    width: 350px;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Form styles */
+  form h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    text-align: left;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2); /* Transparent input background */
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.1);
+  }
+  
+  form input::placeholder {
+    color: #d9d9d9; /* Placeholder color */
+  }
+  
+  form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #003366; /* Navy blue button */
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  form button:hover {
+    background: #001f3f; /* Darker navy blue on hover */
+  }
+  
+  /* Social buttons */
+  .social {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .social div {
+    width: 48%;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2); /* Transparent button background */
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .social div i {
+    margin-right: 8px;
+  }
+  
+  .social .go {
+    background: rgba(219, 50, 54, 0.3); /* Google red tone */
+  }
+  
+  .social .fb {
+    background: rgba(59, 89, 152, 0.3); /* Facebook blue tone */
+  }
+  
+  .social div:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05); /* Subtle scale effect */
+  }
+  

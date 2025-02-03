@@ -18,4 +18,15 @@ router.post("/create", async (req, res) => {
     }
 });
 
+router.get("/", async(req,res) => {
+    const sql = "Select event_name,location from events";
+    db.query(sql,(err, results) => {
+        if (err) {
+            return res.status(500).json({error : err.message});
+        }
+        res.json(results);
+    }) 
+    
+
+})
 module.exports = router;

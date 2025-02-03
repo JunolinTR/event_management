@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const mysql = require("mysql/promise");
+const mysql = require("mysql2/promise");
 const cors = require("cors");
 
 const app = express();
@@ -20,7 +20,7 @@ let db;
     await db.execute(`
         CREATE TABLE IF NOT EXISTS events (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
+            event_name VARCHAR(255) NOT NULL,
             location VARCHAR(256) NOT NULL,
             date DATE NOT NULL,
             available_seats INT NOT NULL
@@ -60,7 +60,14 @@ let db;
     console.log("Database and tables initialized successfully.");
 })();
 
-const PORT = 3000;
+
+//Router
+const router=require("./routes/EventRouter");
+app.use("/events",router);
+
+
+
+const PORT = 5000;
 app.listen(PORT, () => {
-    console.log("Server is running on port ${PORT}");
+    console.log(`Server is running on port ${PORT}`);
 });

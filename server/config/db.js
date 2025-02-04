@@ -10,8 +10,6 @@ async function connectToDB() {
             database: 'event_management',
             port: 13843
         });
-
-        console.log("database connection established");
         return db;
     }catch(err){
         console.error("Error connecting to Db", err);
@@ -23,10 +21,16 @@ connectToDB();
 
 async function createTables(){
     try {
-        const db = await connectToDB;
-    
-    
+        const db = await connectToDB();
 
+        await db.execute(`
+            CREATE TABLE IF NOT EXISTS users (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                username VARCHAR(255) NOT NULL UNIQUE,
+                email VARCHAR(255) NOT NULL UNIQUE,
+                password VARCHAR(255) NOT NULL
+            )
+        `);
 
         await db.execute(`
             CREATE TABLE IF NOT EXISTS events (
@@ -50,14 +54,7 @@ async function createTables(){
             )
         `);
 
-        await db.execute(`
-            CREATE TABLE IF NOT EXISTS users (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                username VARCHAR(255) NOT NULL UNIQUE,
-                email VARCHAR(255) NOT NULL UNIQUE,
-                password VARCHAR(255) NOT NULL
-            )
-        `);
+        
 
         await db.execute(`
             CREATE TABLE IF NOT EXISTS admin (
@@ -69,9 +66,11 @@ async function createTables(){
         `);
 
         console.log("Database and tables initialized successfully.");
+        await db.end();
     } catch(error) {
         console.log("Error creating tables", error);
     }
 };
 
 
+module.exports = { connectToDB, createTables };

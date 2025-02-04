@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { createEvent } = require("../models/CreateEvent.js");
+const {connectToDB} = require("../config/db");
 
 // POST route to create an event
 router.post("/create", async (req, res) => {
@@ -19,14 +20,12 @@ router.post("/create", async (req, res) => {
 });
 
 router.get("/", async(req,res) => {
-    const sql = "Select event_name,location from events";
-    db.query(sql,(err, results) => {
-        if (err) {
-            return res.status(500).json({error : err.message});
-        }
-        res.json(results);
-    }) 
+    const db = await connectToDB();
+    const [results] = await db.query("SELECT event_name, location FROM events");
+    await db.end();
+    res.json(results);
+});
     
 
-})
+
 module.exports = router;

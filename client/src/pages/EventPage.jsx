@@ -1,5 +1,7 @@
+import React from 'react'
 import { useState, useEffect } from "react";
 import { Card, CardContent, Button } from '@mui/material';
+import axios from "axios"
 
 
 function EventsPage() {
@@ -10,18 +12,10 @@ function EventsPage() {
 
   // Fetch events from backend when component mounts
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/events/all"); // Update API URL if needed
-        const data = await response.json();
-        setListOfEvents(data);
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      }
-    };
-
-    fetchEvents();
-  }, []);
+    axios.get("http://localhost:3001/events/").then((response) => {
+      setListOfEvents(response.data);
+    });
+  }, [])
 
   // Filter events based on category
   const filteredEvents = selectedCategory === "All"

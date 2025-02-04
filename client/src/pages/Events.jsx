@@ -8,7 +8,7 @@ function Events() {
   const [ListOfEvents, setEvents] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/events/").then((response) => {
+    axios.get("http://localhost:5000/events/").then((response) => {
       setEvents(response.data);
     });
   }, [])

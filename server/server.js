@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql2/promise");
 const cors = require("cors");
+const {createTables} = require("./config/db")
 
 const app = express();
 app.use(express.json());
@@ -14,7 +15,7 @@ app.use(bodyParser.json());
 const router=require("./routes/EventRouter");
 app.use("/events",router);
 
-
+createTables();
 
 const PORT = 5000;
 app.listen(PORT, () => {

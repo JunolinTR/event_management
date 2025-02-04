@@ -6,6 +6,7 @@ import CreateEvent from './pages/CreateEvent';
 
 
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import Events from "./pages/Events";
 function App() {
   return (
     <BrowserRouter>
@@ -13,7 +14,7 @@ function App() {
     <Route path="/" element={<Home/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/signup" element={<Signup/>}></Route>
-          <Route path="/events" element={<EventsPage/>}></Route>
+          <Route path="/events" element={<Events/>}></Route>
           <Route path="/create" element={<CreateEvent/>}></Route>          
         </Routes>
       </BrowserRouter>

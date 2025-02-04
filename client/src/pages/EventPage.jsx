@@ -10,9 +10,9 @@ function EventsPage() {
 
   const categories = ["All", "Technology", "Entertainment", "Business", "Art", "Food"];
 
-  // Fetch events from backend when component mounts
+  
   useEffect(() => {
-    axios.get("http://localhost:3001/events/").then((response) => {
+    axios.get("http://localhost:5000/events/").then((response) => {
       setListOfEvents(response.data);
     });
   }, [])

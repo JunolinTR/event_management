@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, Button } from '@mui/material';
-import "../styles/EventPage.css";
+
 
 function EventsPage() {
   const [events, setListOfEvents] = useState([]);

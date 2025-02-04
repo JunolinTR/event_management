@@ -1,19 +1,19 @@
-import React from 'react';
-import "../styles/login.css"
+import React from 'react'
 
-function Login() {
+function Signup() {
   return (
-    <div className='login'>
+    <div>
+      <div className='signup'>
    <form>
-        <h3>Login Here</h3>
+        <h3>Signup Here</h3>
 
-        <label for="username ">Username</label>
+        <label for="username">Username</label>
         <input type="text" placeholder="Email or Phone" id="username"/>
 
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password"/>
 
-        <button>Log In</button>
+        <button>Sign Up</button>
         <div class="social">
           <div class="go"><i class="fab fa-google"></i>  Google</div>
           <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
@@ -21,7 +21,8 @@ function Login() {
     </form>
 
     </div>
+    </div>
   )
 }
 
-export default Login;
+export default Signup;
